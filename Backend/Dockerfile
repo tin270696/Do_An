@@ -1,4 +1,4 @@
-FROM node:lts-alpines
+FROM node:lts-alpine
 
 WORKDIR /app
 
@@ -11,7 +11,7 @@ COPY . .
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN sed -i 's/\r$//' /usr/local/bin/docker-entrypoint.sh && chmod +x /usr/local/bin/docker-entrypoint.sh
 
-ENTRYPOINT [ "/sin/sh", "/usr/local/bin/docker-entrypoint.sh" ]
+ENTRYPOINT [ "/bin/sh", "/usr/local/bin/docker-entrypoint.sh" ]
 
 CMD [ "node", "server.js" ]
 

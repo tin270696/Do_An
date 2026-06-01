@@ -15,9 +15,11 @@ export async function listSongs({ query }) {
     genre: query.genre,
     artist: query.artist,
   };
-  const limit = query.limit;
-  const page = query.page;
+
+  const limit = Number(query.limit) || 10;
+  const page = Number(query.page) || 1;
   const offset = (page - 1) * limit;
+  
   const {items, total} = await Song.all({filters, offset, limit});
   return {
     items,

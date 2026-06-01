@@ -23,7 +23,7 @@ export async function getSongs({ page = 1, limit = 100 } = {}) {
     page: String(page),
     limit: String(limit),
   });
-  const response = await apiFetch(`/songs/${params.toString()}`);
+  const response = await apiFetch(`/songs?${params.toString()}`);
   const payload = await readApiResponse(response, "Không thể tải bài hát");
 
   return {

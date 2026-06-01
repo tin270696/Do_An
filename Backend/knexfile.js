@@ -17,7 +17,7 @@ export default {
       max: 10
     },
     migrations: {
-      diretory: './db/migrations',
+      directory: './db/migrations',
       tableName: 'knex_migrations'
     },
     seeds: {

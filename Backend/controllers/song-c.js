@@ -14,7 +14,8 @@ export async function getSongById(req, res) {
 // [GET] /api/v1/songs?q=keyword
 export async function getSongs(req, res) {
   try {
-    const result = await songService.listSongs({ query: req.validated.query });
+    const queryData = req.validated?.query || req.query || {}; 
+    const result = await songService.listSongs({ query: queryData });
     return res.list(result.items, result.meta);
   } catch (error) {
     return res.error(error);
