@@ -98,7 +98,7 @@ export async function removeSongFromPlaylist(req, res) {
   try {
     const playlistId = req.params.id;
     const songId = req.params.songId;
-    await playlistService.addSongToPlaylist(playlistId, songId);
+    await playlistService.removeSongFromPlaylist(playlistId, songId);
     const songs = await playlistService.getSongsInPlaylist(playlistId);
     return res.ok({ songs })
   } catch (error) {
