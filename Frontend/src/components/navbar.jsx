@@ -328,22 +328,24 @@ export default function Navbar() {
             </ButtonGroup>
           </Field>
           {!isAuthenticated || !user ? (
-            <>
+            <div className="flex items-center gap-2">
               <Button
+                type="button"
                 variant="outline"
-                className="rounded-full p-2"
-                onClick={() => navigate("/signup")}
+                className="rounded-full px-4 py-2" // Đổi p-2 thành px-4 để nút hiển thị chữ đẹp hơn
+                onClick={() => navigate("/register")} // Sửa từ /signup thành /register
               >
                 Signup
               </Button>
               <Button
+                type="button"
                 variant="outline"
-                className="rounded-full p-2"
+                className="rounded-full px-4 py-2"
                 onClick={() => navigate("/login")}
               >
                 Login
               </Button>
-            </>
+            </div>
           ) : (
             <AccountDropdown user={user} onLogout={logout} />
           )}
