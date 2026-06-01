@@ -8,7 +8,7 @@ const SALT_ROUNDS = parseInt(process.env.SALT_ROUNDS) || 12;
 const ACCESS_TOKEN_EXPIRES = process.env.JWT_ACCESS_EXPIRES || '15m';
 
 const signAccessToken = (userId) => {
-  return jwwt.sign(
+  return jwt.sign(
     { id: userId, type: 'access' },
     process.env.JWT_SECRET,
     { expiresIn: ACCESS_TOKEN_EXPIRES }
