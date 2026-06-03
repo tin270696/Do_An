@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Skeleton } from "@/components/ui/skeleton";
 import { addSongToPlaylist, createPlaylist, getPlaylistSongs, getUserPLaylists, removeSongFromPlaylist } from "@/services/music";
 
-const PLAYLIST_CHANGED_EVENT = "playlist:changed";
+const PLAYLIST_CHANGED_EVENT = "playlists:changed";
 
 function hasSong(songs, songId) {
   return songs.some((song) => String(song.id) === String(songId));

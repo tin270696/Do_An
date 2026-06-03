@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import Icons from "@/components/icons";
-import { createPlaylist, deletePlaylist } from "@/services/music";
+import { updatePlaylist, deletePlaylist } from "@/services/music";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { SidebarMenuButton } from "@/components/ui/sidebar";
 
-const PLAYLIST_CHANGED_EVENT = "playlist:changed";
+const PLAYLIST_CHANGED_EVENT = "playlists:changed";
 
 export default function PLaylistEditDialog({ playlist, onDeleted, onUpdated }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -80,7 +80,7 @@ export default function PLaylistEditDialog({ playlist, onDeleted, onUpdated }) {
       setIsSaving(true);
       setError("");
 
-      const updatedPlaylist = await updatedPlaylist({
+      const updatedPlaylist = await updatePlaylist({
         name: nextName,
         description: description.trim(),
         is_public: isPublic,

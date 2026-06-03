@@ -23,13 +23,12 @@ export const createPlaylistSchema = z.object({
 export const updatePlaylistSchema = z.object({
   name: z.string()
     .min(2, "Name phải có ít nhất 2 ký tự")
-    .max(100, "Name tối đa 100 ký tự")
-    .optional(),
+    .max(100, "Name tối đa 100 ký tự"),
   description: z.string()
     .max(200, "Description tối đa 200 ký tự")
     .optional(),
   is_public: z.boolean().optional(),
-}).partial().refine(
+}).refine(
   (obj) => Object.keys(obj).length > 0,
   { message: 'Body must have at least 1 field to update' }
 );
