@@ -42,7 +42,7 @@ export async function up(knex) {
     table.index(['is_public']);
   });
 
-  await knex.schema.createTable('playlists_songs', (table) => {
+  await knex.schema.createTable('playlist_songs', (table) => {
     table
       .integer('playlist_id')
       .unsigned()

@@ -1,4 +1,3 @@
-import playlist from '../models/playlist.js';
 import * as playlistService from '../services/playlist-s.js';
 import { addClient, removeClient, sendInitialEvent } from '../services/sse-s.js';
 
@@ -58,7 +57,7 @@ export async function streamNewPublicPlaylists(req, res) {
 // [POST] /api/v1/playlists
 export async function createPlaylist(req, res) {
   try {
-    const playlistData = req.validate.body;
+    const playlistData = req.validated.body;
     const newPlaylist = await playlistService.createPlaylist(
       req.user.id,
       playlistData,
@@ -84,7 +83,7 @@ export async function getSongsInPlaylist(req, res) {
 export async function addSongToPlaylist(req, res) {
   try {
     const playlistId = req.params.id;
-    const { song_id, sort_order } = req.validate.body;
+    const { song_id, sort_order } = req.validated.body;
     await playlistService.addSongToPlaylist(playlistId, song_id, sort_order);
     const songs = await playlistService.getSongsInPlaylist(playlistId);
     return res.ok({ songs })
@@ -111,7 +110,7 @@ export async function removeSongFromPlaylist(req, res) {
 export async function updatePlaylist(req, res) {
   try {
     const playlistId = req.params.id;
-    const playlistData = req.validate.body;
+    const playlistData = req.validated.body;
     const updatedPlaylist = await playlistService.updatePlaylist(
       playlistId,
       playlistData,

@@ -288,7 +288,7 @@ function PlaylistSidebar() {
                   key={playlist.id}
                   playlist={playlist}
                   isActive={currentPlaylistId === String(playlist.id)}
-                  editablePlaylist={editablePlaylist}
+                  editablePlaylist={playlist}
                   onDeleted={handlePlaylistDeleted}
                   onUpdated={handlePlaylistUpdated}
                 />

@@ -27,7 +27,7 @@ export default  {
   addSongToPlaylist: async (playlist_id, song_id, sort_order) => {
     const existing = await db('playlist_songs').where({ playlist_id, song_id }).first();
 
-    if(!existing) {
+    if(existing) {
       throw new Error('Song already exists in playlist');
     }
 
@@ -41,7 +41,7 @@ export default  {
     const existing = await db('playlist_songs').where({ playlist_id, song_id }).first();
 
     if(!existing) {
-      throw new Error('Song already exists in playlist');
+      throw new Error('Song not found in playlist');
     }
 
     return db('playlist_songs').where({ playlist_id, song_id }).del();

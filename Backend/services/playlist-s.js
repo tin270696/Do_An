@@ -70,11 +70,11 @@ export async function updatePlaylist(playlistId, playlistData) {
   }
 
   const updatedPlaylist = await Playlist.update(playlistId, playlistData);
-  if(updatePlaylist.is_public && !currentPlaylist.is_public) {
-    notifyNewPublicPlaylist(updatePlaylist, 'made_public')
+  if(updatedPlaylist.is_public && !currentPlaylist.is_public) {
+    notifyNewPublicPlaylist(updatedPlaylist, 'made_public')
   }
-  if(!updatePlaylist.is_public && currentPlaylist.is_public) {
-    notifyNewPublicPlaylist(updatePlaylist, 'made_private')
+  if(!updatedPlaylist.is_public && currentPlaylist.is_public) {
+    notifyNewPublicPlaylist(updatedPlaylist, 'made_private')
   }
 
   return updatedPlaylist;

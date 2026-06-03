@@ -36,7 +36,7 @@ export async function checkPlaylistOwnership(req, res, next) {
       throw AppError.notFound('PLAYLIST_NOT_FOUND', 'Playlist not found');
     }
 
-    if(playlist.user.id !== req.user.id) {
+    if(playlist.user_id !== req.user.id) {
       throw AppError.forbidden('FORBIDDEN', 'You do not have permission to perform this action');
     }
     next();

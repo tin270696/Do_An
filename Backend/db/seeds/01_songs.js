@@ -2,7 +2,7 @@
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> } 
  */
-import { songs } from "./songs.js";
+import { songs } from "../songs.js";
 
 export async function seed(knex) {
   await knex('playlist_songs').del();

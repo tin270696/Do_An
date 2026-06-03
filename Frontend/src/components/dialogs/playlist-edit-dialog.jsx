@@ -114,7 +114,7 @@ export default function PLaylistEditDialog({ playlist, onDeleted, onUpdated }) {
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>Sửa pLaylist</DialogTitle>
+          <DialogTitle>Sửa Playlist</DialogTitle>
           <DialogDescription>{playlist.name}</DialogDescription>
         </DialogHeader>
 
