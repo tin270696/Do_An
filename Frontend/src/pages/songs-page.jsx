@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
 import SongPLaylistDialog from "@/components/dialogs/songs-playlist-dialog";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
@@ -254,7 +254,14 @@ export default function SongsPage() {
                   <TableCell className="font-medium">
                     {firstRowIndex + index + 1}
                   </TableCell>
-                  <TableCell>{song.title}</TableCell>
+                  <TableCell>
+                    <Link 
+                      to={`/songs/${song.id}`} 
+                      className="font-semibold text-primary hover:underline"
+                    >
+                      {song.title}
+                    </Link>
+                  </TableCell>
                   <TableCell>{song.artist}</TableCell>
                   <TableCell>{song.genre || "-"}</TableCell>
                   <TableCell className="text-right tabular-nums">

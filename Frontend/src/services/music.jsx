@@ -119,3 +119,10 @@ export async function removeSongFromPlaylist(playlistId, songId) {
 
   return Array.isArray(payload.data?.songs) ? payload.data.songs : [];
 }
+
+export async function getSongById(songId) {
+  const response = await apiFetch(`/songs/${songId}`);
+  const payload = await readApiResponse(response, "Không thể tải thông tin bài hát");
+
+  return payload.data?.song || null;
+}

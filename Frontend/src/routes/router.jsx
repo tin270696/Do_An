@@ -12,6 +12,7 @@ import RegisterPage from "@/pages/auth/register-page";
 import ProfilePage from "@/pages/auth/profile-page";
 import SongsPage from "@/pages/songs-page";
 import NotFoundPage from "@/pages/not-found-page";
+import SongDetailPage from "@/pages/song-detail-page";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
             path: "/songs",
             element: <SongsPage />
           },
+          {
+            path: "/songs/:id",
+            element: <SongDetailPage />
+          }
         ],
       },
     ],

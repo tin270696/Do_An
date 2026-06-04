@@ -80,7 +80,7 @@ export default function PLaylistEditDialog({ playlist, onDeleted, onUpdated }) {
       setIsSaving(true);
       setError("");
 
-      const updatedPlaylist = await updatePlaylist({
+      const updatedPlaylist = await updatePlaylist(playlist.id, {
         name: nextName,
         description: description.trim(),
         is_public: isPublic,
