@@ -37,7 +37,7 @@ export default  {
       sort_order
     });
   },
-  removeSongFromPLaylist: async (playlist_id, song_id) => {
+  removeSongFromPlaylist: async (playlist_id, song_id) => {
     const existing = await db('playlist_songs').where({ playlist_id, song_id }).first();
 
     if(!existing) {
