@@ -43,7 +43,7 @@ import playlistRouter from './routers/playlist-r.js';
 app.use('/api/v1/playlists', playlistRouter);
 
 app.get('/', (req, res) => {
-  return res.redirect('/api.docs');
+  return res.redirect('/api-docs');
 })
 
 app.get('/api-docs', (req, res) => {

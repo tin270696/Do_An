@@ -1,4 +1,3 @@
-import { get } from "react-hook-form";
 import { getAccessToken, clearAllTokens } from "./token-service";
 import { config } from "@/config";
 const BASE_URL = config.apiUrl;

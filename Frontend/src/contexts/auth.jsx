@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { getMeApi, loginApi, logoutApi, regApi } from "@/auth/api";
-import { setAccessToken, getAccessToken, clearAccessToken, clearAllTokens } from "@/auth/token-service";
+import { setAccessToken, getAccessToken, clearAllTokens } from "@/auth/token-service";
 
 const AuthContext = createContext(null);
 export function AuthProvider({ children }) {
